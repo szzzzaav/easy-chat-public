@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 
 export const MediaRoom = ({ chatId, video, audio }) => {
   const { user } = useUser();
+  console.log("user", user);
   const [token, setToken] = useState("");
   const resp = useRef();
   useEffect(() => {
