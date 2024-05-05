@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import "@livekit/components-styles";
 import { Channel } from "@prisma/client";
@@ -10,6 +10,7 @@ import { Loader2 } from "lucide-react";
 export const MediaRoom = ({ chatId, video, audio }) => {
   const { user } = useUser();
   const [token, setToken] = useState("");
+  const resp = useRef();
   useEffect(() => {
     console.log("reasonfornousername");
     if (!user?.username) return;
@@ -17,10 +18,10 @@ export const MediaRoom = ({ chatId, video, audio }) => {
     const name = `${user.username}`;
     (async () => {
       try {
-        const resp = await fetch(
+        resp.current = await fetch(
           `/api/livekit?room=${chatId}&username=${name}`
         );
-        const data = await resp.json();
+        const data = await resp.current.json();
         setToken(data.token);
       } catch (e) {
         console.log(e);
