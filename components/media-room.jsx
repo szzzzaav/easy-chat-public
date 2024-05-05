@@ -14,9 +14,9 @@ export const MediaRoom = ({ chatId, video, audio }) => {
   const resp = useRef();
   useEffect(() => {
     console.log("reasonfornousername");
-    if (!user?.username) return;
+    if (!user?.username || !user?.fullName) return;
     console.log("NOT-reasonfornousername");
-    const name = `${user.username}`;
+    const name = `${user.username || user.fullName}`;
     (async () => {
       try {
         resp.current = await fetch(
