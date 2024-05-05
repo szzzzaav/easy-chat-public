@@ -11,7 +11,9 @@ export const MediaRoom = ({ chatId, video, audio }) => {
   const { user } = useUser();
   const [token, setToken] = useState("");
   useEffect(() => {
+    console.log("reasonfornousername");
     if (!user?.username) return;
+    console.log("NOT-reasonfornousername");
     const name = `${user.username}`;
     (async () => {
       try {

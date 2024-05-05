@@ -21,6 +21,7 @@ export const SocketProvider = ({ children }) => {
       path: "/api/socket/io",
       addTrailingSlash: false,
     });
+    console.log(socketInstance);
 
     socketInstance.on("connect", () => {
       setIsConnected(true);
