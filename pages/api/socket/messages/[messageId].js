@@ -3,6 +3,7 @@ import { db } from "@/lib/db";
 import { MemberRole } from "@prisma/client";
 
 export default async function handler(req, res) {
+  console.log(123);
   if (req.method !== "DELETE" && req.method !== "PATCH") {
     return res.status(405).json({ error: "Method not allowed" });
   }
