@@ -42,7 +42,9 @@ export const ServerMember = ({ member, server }) => {
             "text-primary dark:text-zinc-200 dark:group-hover:text-white"
         )}
       >
-        {member?.profile?.name}
+        {member?.profile?.name ||
+          member?.profile?.username ||
+          member?.profile?.fullName}
       </p>
       {icon}
     </button>
