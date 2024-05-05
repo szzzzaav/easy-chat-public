@@ -26,9 +26,10 @@ export const MediaRoom = ({ chatId, video, audio }) => {
         console.log(e);
       }
     })();
-  }, [chatId, user]);
+  }, [chatId, user, resp]);
 
   if (token === "") {
+    console.log("NO TOKEN");
     return (
       <div className="flex flex-col justify-center items-center">
         <Loader2 className="w-7 h-7 text-indigo-500 animate-spin my-4" />
