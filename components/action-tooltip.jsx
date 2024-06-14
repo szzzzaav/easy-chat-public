@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/tooltip";
 
 export const ActionTooltip = ({ label, children, side, align }) => {
-  // changed
   return (
     <TooltipProvider>
       <Tooltip delayDuration={50}>
